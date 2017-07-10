@@ -7,14 +7,16 @@ output: html_document
 
 ## Introducción
 
-
+El evento Niño de 1982-83 fue calificado de intensidad extraordinaria, con un incremento de la Temperatura Superficial del Mar (SST) en la costa norte de hasta de 10° celsius (MINAM, 2014). Las condiciones oceanográficas posteriores a dicho evento son de particular interés para saber en qué momento la productividad primaria se ha reestablecido en las costas del Perú. Debido a ello, se comparan dos parámetros: la TSM y la productividad primaria entre los años 1981-1985.
 
 ## Materiales y métodos
 
-Se usó la base de datos de parámetros oceanográficos del Max-Plank-Institut für Meteorologie (proporcionado por Oliveros-Ramos, com. pers., 2017) que contienen datos de la Temperatura Superficial del Mar (SST), Salinidad (SSS), fitoplankton pequeño (sphy) y grande (lsphy) y pH, desde 1959 hasta el 2005 (552 meses). Se seleccionaron los meses correspondientes a enero-diciembre de 1981 (264-275) y 1984 (300-311) para las comparaciones respectivas. Los datos fueron trabajados en el software R (Ver. 3.4.0). Se instalaron los paquetes Fields, Maps, ncdf4, Kali para la obtención de los gráficos. 
+Se usó la base de datos de parámetros oceanográficos del Max-Plank-Institut für Meteorologie (proporcionado por Oliveros-Ramos, com. pers., 2017) que contienen datos de la Temperatura Superficial del Mar (SST), Salinidad (SSS), integración vertical de la producción de fitoplankton pequeño (sphy) y grande (lsphy) y pH, desde 1959 hasta el 2005 (552 meses). Se seleccionaron los meses correspondientes a enero-diciembre de 1981 (264-275) y 1984 (300-311) para las comparaciones respectivas. Los datos fueron trabajados en el software R (Ver. 3.4.0). Se instalaron los paquetes Fields, Maps, ncdf4, Kali para la obtención de los gráficos. 
 
 
 ## Resultados y discusión
+
+La Temperatura superficial del Mar (SST) para el intervalo 1981-1984 se muestra a continuación en los siguientes gráficos:
 
 ```{r}
 library(ncdf4)
@@ -25,6 +27,32 @@ sst = ncvar_get(nc, "to")
 lat = ncvar_get(nc, "latitude")
 lon = ncvar_get(nc, "longitude") - 360
 image.map(lon, lat, sst[,,1])
+
+#Temperatura Superficial del Mar
+
+par(mfrow=c(3,1))
+
+#SST Promedio 1981-1984
+sst_mean = apply(sst[,,264:311], MARGIN = c(1,2), FUN = mean, na.rm = TRUE)
+image.map(lon, lat, sst_mean, main = "mapa de SST promedio entre 1981-1984")
+
+#1981
+sst_1981 = apply(sst[,,264:275], MARGIN = c(1,2), FUN = mean, na.rm = TRUE)
+anom_sst1 = sst_mean-sst_1981
+image.map(lon, lat, anom_sst1, main = "mapa de la anomalía de SST en 1981")
+
+#1984
+sst_1984 = apply(sst[,,300:311], MARGIN = c(1,2), FUN = mean, na.rm = TRUE)
+anom_sst2 = sst_mean-sst_1984
+image.map(lon, lat, anom_sst2, main = "mapa de la anomalía de SST en 1984")
+
+
+
+
+
+
+
+
 ```
 
 
