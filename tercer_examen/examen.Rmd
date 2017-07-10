@@ -1,12 +1,18 @@
 ---
-title: "Análisis de las condiciones del océano frente a Perú durante mi nacimiento"
-author: "Rafael Varas Malca"
+title: "Análisis comparativo de las condiciones oceanográficas frente al Perú antes y después de El Niño 1982-1983"
+author: "Rafael M. Varas Malca"
 output: html_document
 ---
 
+
 ## Introducción
 
+
+
 ## Materiales y métodos
+
+Se usó la base de datos de parámetros oceanográficos del Max-Plank-Institut für Meteorologie (proporcionado por Oliveros-Ramos, com. pers., 2017) que contienen datos de la Temperatura Superficial del Mar (SST), Salinidad (SSS), fitoplankton pequeño (sphy) y grande (lsphy) y pH, desde 1959 hasta el 2005 (552 meses). Se seleccionaron los meses correspondientes a enero-diciembre de 1981 (264-275) y 1984 (300-311) para las comparaciones respectivas. Los datos fueron trabajados en el software R (Ver. 3.4.0). Se instalaron los paquetes Fields, Maps, ncdf4, Kali para la obtención de los gráficos. 
+
 
 ## Resultados y discusión
 
