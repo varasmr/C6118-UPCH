@@ -39,22 +39,22 @@ par(mfrow=c(2,2))
 
 #SST Promedio 1981-1986
 sst_mean = apply(sst[,,264:336], MARGIN = c(1,2), FUN = mean, na.rm = TRUE)
-image.map(lon, lat, sst_mean, main = "Mapa de SST promedio entre 1981-1986 (°C")
+image.map(lon, lat, sst_mean, main = "Mapa de SST promedio entre 1981-1986 (°C)")
 
 #1981
 sst_1981 = apply(sst[,,264:275], MARGIN = c(1,2), FUN = mean, na.rm = TRUE)
 anom_sst1 = sst_mean-sst_1981
-image.map(lon, lat, anom_sst1, main = "Anomalía de SST en 1981 (°C")
+image.map(lon, lat, anom_sst1, main = "Anomalía de SST en 1981 (°C)")
 
 #1984
 sst_1984 = apply(sst[,,300:311], MARGIN = c(1,2), FUN = mean, na.rm = TRUE)
 anom_sst1 = sst_mean-sst_1984
-image.map(lon, lat, anom_sst1, main = "Anomalía de SST en 1984 (°C")
+image.map(lon, lat, anom_sst1, main = "Anomalía de SST en 1984 (°C)")
 
 #1986
 sst_1986 = apply(sst[,,324:336], MARGIN = c(1,2), FUN = mean, na.rm = TRUE)
 anom_sst2 = sst_mean-sst_1986
-image.map(lon, lat, anom_sst2, main = "Anomalía de SST en 1986 (°C")
+image.map(lon, lat, anom_sst2, main = "Anomalía de SST en 1986 (°C)")
 ```
 
 La SST promedio en el rango 1981-1986 fluctúa entre los 21-25°C. En 1981 se observa un ligero incremento de la SST frente a las costas del norte y centro del país. Este patrón aminora en 1984 y posteriormente es invertido por un periodo ligeramente frío en dicha zona en 1986.
