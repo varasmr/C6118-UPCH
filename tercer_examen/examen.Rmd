@@ -9,7 +9,7 @@ output:
 
 ## Introducción
 
-El evento del Niño de 1982-83 fue calificado de intensidad extraordinaria, con un incremento de la Temperatura Superficial del Mar (SST, por sus siglas en inglés) en la costa norte del Perú de hasta de 10° celsius (MINAM, 2014). Las condiciones oceanográficas posteriores a dicho evento son de particular interés para saber en qué momento la productividad primaria se reestableció en las costas del Perú respecto a años anteriores al evento. Debido a ello, en este trabajo se comparan dos parámetros: la SST y la productividad primaria entre los años 1978-1981 y 1984-1987. 
+El evento del Niño de 1982-83 fue calificado de intensidad extraordinaria, con un incremento de la Temperatura Superficial del Mar (SST, por sus siglas en inglés) en la costa norte del Perú de hasta de 10° celsius (MINAM, 2014). Las condiciones oceanográficas posteriores a dicho evento son de particular interés para saber en qué momento la productividad primaria se reestableció en las costas del Perú respecto a años anteriores al evento. Debido a ello, en este trabajo se comparan dos parámetros: la SST y la productividad primaria entre los años 1978-1981 y 1984-1987.  
 
 
 ## Materiales y métodos
