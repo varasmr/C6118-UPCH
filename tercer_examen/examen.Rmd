@@ -9,13 +9,15 @@ output:
 
 ## Introducción
 
-El evento del Niño de 1982-83 fue calificado de intensidad extraordinaria, con un incremento de la Temperatura Superficial del Mar (SST, por sus siglas en inglés) en la costa norte del Perú de hasta de 10° celsius (MINAM, 2014). Las condiciones oceanográficas posteriores a dicho evento son de particular interés para saber en qué momento la productividad primaria se reestableció en las costas del Perú respecto a años anteriores al evento. Debido a ello, en este trabajo se comparan dos parámetros: la SST y la productividad primaria entre los años 1978-1981 y 1984-1987.  
+El evento del Niño de 1982-83 fue calificado de intensidad extraordinaria, con un incremento de la Temperatura Superficial del Mar (SST, por sus siglas en inglés) frente a la costa norte del Perú de hasta de 10° celsius (MINAM, 2014). Las condiciones oceanográficas posteriores a dicho evento son de particular interés para saber en qué momento la productividad primaria se reestableció en las costas del Perú respecto a años anteriores al evento. Debido a ello, en este trabajo se comparan dos parámetros: la SST y la productividad primaria entre los años 1978-1981 y 1984-1987.
 
 
 ## Materiales y métodos
 
-Se usó la base de datos de parámetros oceanográficos del Max-Plank-Institut für Meteorologie (proporcionado por Oliveros-Ramos, com. pers., 2017) que contienen datos de la Temperatura Superficial del Mar (SST), Salinidad (SSS), integración vertical de la producción de fitoplankton pequeño (sphy) y grande (lsphy) y pH, desde 1959 hasta el 2005 (representada en 552 meses). Se seleccionaron los meses correspondientes a enero-diciembre de 1981 (264-275), 1984 (300-311) y 1985 (312-323) para las comparaciones respectivas. Los datos fueron trabajados en el software R (Ver. 3.4.0). Se instalaron los paquetes Fields, Maps, ncdf4, Kali para la obtención de los gráficos.
+Se usó la base de datos de parámetros oceanográficos del Max-Plank-Institut für Meteorologie (proporcionado por Oliveros-Ramos, com. pers., 2017) que contienen datos de la Temperatura Superficial del Mar (SST), Salinidad (SSS), integración vertical de la producción de fitoplankton pequeño (sphy) y grande (lsphy) y pH, desde 1959 hasta el 2005 (representada en 552 meses). Se seleccionaron los meses correspondientes a enero-diciembre de en el lapso de 1978-1981 (228-275), 1982 (276), 1983 (288-299), 1984 (300-311), 1985 (312-323) y 1987 (336-347) para las comparaciones respectivas. Los datos fueron trabajados en el software R (Ver. 3.4.0). Se instalaron los paquetes Fields, Maps, ncdf4, Kali para la obtención de los gráficos.
+
 Las anomalías de la SST se obtuvieron mediante la diferencia entre el valor de la SST promedio de los rangos mencionados y el año estudiado.
+
 En el caso de la productividad primaria, debido a que no se cuenta como proxy la Clorofila A satelital, se ha tomado en cuenta la integración vertical del fitoplankton, aunque no se especifica la profundidad de las muestras.
 
 
@@ -23,7 +25,7 @@ En el caso de la productividad primaria, debido a que no se cuenta como proxy la
 
 ### Temperatura Superficial del Mar
 
-La SST para el año de El Niño 1982-83 se muestra a continuación
+La SST para el año de El Niño 1982-83 se muestra a continuación:
 
 ```{r echo=FALSE, fig.cap="Figura 1. Climatologías para los años de El Niño 1982-1983", fig.align='center'} 
 
@@ -44,7 +46,7 @@ for(i in 276:287){
                   MARGIN = c(1,2),
                   FUN=mean,na.rm=TRUE)
 }
-image.plot(lon,lat,clim[,,i], main="Climatología del año 1982",xlab="longitud", ylab="latitud")
+image.plot(lon,lat,clim[,,i], main="Climatología del año 1982 (°C)",xlab="longitud", ylab="latitud")
 
 clim=array(dim=c(dim(sst)[1:2],552))
 
@@ -53,20 +55,11 @@ for(i in 288:299){
                   MARGIN = c(1,2),
                   FUN=mean,na.rm=TRUE)
 }
-image.plot(lon,lat,clim[,,i], main="Climatología del año 1983",xlab="longitud", ylab="latitud")
+image.plot(lon,lat,clim[,,i], main="Climatología del año 1983 (°C)",xlab="longitud", ylab="latitud")
 
 ```
 
-
-
-
-
-
-
-
-
-
-
+Para el caso de la variación de la SST respecto al SST promedio visto entre 1978-1981, se muestra a continuación en la figura 2:
 
 ```{r echo=FALSE, fig.align='center', fig.cap="Figura 2. Temperatura superficial del mar en la década de 1980 en el Pacífico suroriental"}
 
@@ -76,13 +69,8 @@ image.plot(lon,lat,clim[,,i], main="Climatología del año 1983",xlab="longitud"
 par(mfrow=c(2,2))
 
 #SST Promedio 1978-1981
-sst_mean = apply(sst[,,264:336], MARGIN = c(1,2), FUN = mean, na.rm = TRUE)
-image.map(lon, lat, sst_mean, main = "SST promedio entre 1981-1986 (°C)")
-
-#1981
-sst_1981 = apply(sst[,,264:275], MARGIN = c(1,2), FUN = mean, na.rm = TRUE)
-anom_sst1 = sst_mean-sst_1981
-image.map(lon, lat, anom_sst1, main = "Anomalía de SST en 1981 (°C)")
+sst_mean = apply(sst[,,228:275], MARGIN = c(1,2), FUN = mean, na.rm = TRUE)
+image.map(lon, lat, sst_mean, main = "SST promedio entre 1978-1981 (°C)")
 
 #1984
 sst_1984 = apply(sst[,,300:311], MARGIN = c(1,2), FUN = mean, na.rm = TRUE)
@@ -90,17 +78,23 @@ anom_sst1 = sst_mean-sst_1984
 image.map(lon, lat, anom_sst1, main = "Anomalía de SST en 1984 (°C)")
 
 #1986
-sst_1986 = apply(sst[,,324:336], MARGIN = c(1,2), FUN = mean, na.rm = TRUE)
+sst_1986 = apply(sst[,,324:335], MARGIN = c(1,2), FUN = mean, na.rm = TRUE)
 anom_sst2 = sst_mean-sst_1986
 image.map(lon, lat, anom_sst2, main = "Anomalía de SST en 1986 (°C)")
+
+#1987
+sst_1987 = apply(sst[,,336:347], MARGIN = c(1,2), FUN = mean, na.rm = TRUE)
+anom_sst3 = sst_mean-sst_1987
+image.map(lon, lat, anom_sst3, main = "Anomalía de SST en 1987 (°C)")
+
 ```
 
-La SST promedio en el rango 1981-1986 fluctúa entre los 21-25°C. En 1981 se observa un ligero incremento de la SST frente a las costas del norte y centro del país. Este patrón aminora en 1984 y posteriormente es invertido por un periodo ligeramente frío en dicha zona en 1986.
+La SST promedio en el rango 1978-1981 fluctúa entre los 25-20°C a lo largo de la costa peruana. Al comparar con la climatología de la figura 1, se distingue claramente un aumento de la SST hasta los 5°S en 1982, el cual disminuye para 1983. En 1984 se observa un panorama similar a 1983 tomando en cuenta el rango de anomalías de la SST (figura 2), salvo una ligera tendencia a la dismunución de la SST frente a las costas del norte y centro del país. Este patrón se intensifica en 1986 y continúa hacia el centro en 1987.
 
 
 ### Productividad Primaria
 
-El periodo de 1984 muestra un patrón distinto a lo observado en años previos (e.g. 1981) o posteriores (e.g. 1985,86). Recién en 1985 se observa un comportamiento similar al de 1981, tanto en el fitoplakton de diámetro pequeño como grande (ver gráficas abajo).
+La Producción primaria se estima para fitoplankton de gran y menor tamaños a lo largo de una columna de agua. Se presenta a continuación su concentración para 1981 y 84-86.
 
 ```{r echo=FALSE, fig.align='center', fig.cap="Figura 3. Variación de la Productividad primaria en la década de 1980. Líneas rojas = Fitoplankton pequeño, líneas azules= Fitoplankton grande"}
 
@@ -155,23 +149,34 @@ lines(time3,sphy1986, type="l", col="red",las=3)
 
 ```
 
-
+El periodo de 1984 muestra un patrón distinto a lo observado en años previos (e.g. 1981) o posteriores (e.g. 1985,86). Recién en 1985 se observa un comportamiento similar al de 1981, tanto en el fitoplakton de diámetro pequeño como grande (ver gráficas abajo).
 
 ```{r}
 
-lphy8186=lphy[264:335]
-sphy8186=sphy[264:335]
+
+
+
+lphy8186=apply(lphy[,,264:335], MARGIN = c(1,2), FUN = mean, na.rm = TRUE)
+sphy8186=apply(sphy[,,264:335], MARGIN = c(1,2), FUN = mean, na.rm = TRUE)
 totalphy=lphy8186+sphy8186
-meanphy=apply(totalphy, MARGIN = c(1,2), FUN=mean)
 time4=c(264:335)
+
 plot(time4,totalphy, type="l", col="blue",las=3, xlab="meses",ylab="PP (mol C m-2*s-1)", main = "Producción Primaria durante el Niño")
 abline(v=c(276,299),lty=4)
 
+
+
+lphy8186=lphy[,,264:335]
+sphy8186=sphy[,,264:335]
+totalphy=lphy8186+sphy8186
+
+meanphy=apply(totalphy, MARGIN = c(1,2), FUN=mean)
+time4=c(264:335)
+
+plot(time4,meanphy, type="l", col="blue",las=3, xlab="meses",ylab="PP (mol C m-2*s-1)", main = "Producción Primaria durante el Niño")
+abline(v=c(276,299),lty=4)
+
 ```
-
-
-
-
 
 
 ## Conclusiones
