@@ -89,7 +89,7 @@ image.map(lon, lat, anom_sst3, main = "Anomalía de SST en 1987 (°C)")
 
 ```
 
-La SST promedio en el rango 1978-1981 fluctúa entre los 25-20°C a lo largo de la costa peruana. Al comparar con la climatología de la figura 1, se distingue claramente un aumento de la SST hasta los 5°S en 1982, el cual disminuye para 1983. En 1984 se observa un panorama similar a 1983 tomando en cuenta el rango de anomalías de la SST (figura 2), salvo una ligera tendencia a la dismunución de la SST frente a las costas del norte y centro del país. Este patrón se intensifica en 1986 y continúa hacia el centro en 1987.
+La SST promedio en el rango 1978-1981 fluctúa entre los 25-20°C a lo largo de la costa peruana. Al comparar con la climatología de la figura 1, se distingue claramente un aumento de la SST hasta los 5°S en 1982, el cual disminuye para 1983. En 1984 se observa un panorama similar a 1983 tomando en cuenta el rango de anomalías de la SST (figura 2), salvo una ligera tendencia a la dismunución de la SST frente a las costas del norte y centro del país. Este patrón se intensifica en 1986 y se extiende hasta el centro del país en 1987.
 
 
 ### Productividad Primaria
@@ -149,34 +149,9 @@ lines(time3,sphy1986, type="l", col="red",las=3)
 
 ```
 
-El periodo de 1984 muestra un patrón distinto a lo observado en años previos (e.g. 1981) o posteriores (e.g. 1985,86). Recién en 1985 se observa un comportamiento similar al de 1981, tanto en el fitoplakton de diámetro pequeño como grande (ver gráficas abajo).
-
-```{r}
+El periodo de 1984 muestra un patrón distinto a lo observado en años previos (e.g. 1981) o posteriores (e.g. 1985,86). Recién en 1985 se observa un comportamiento similar al de 1981, tanto en el fitoplakton de diámetro pequeño como grande (ver figura 3).
 
 
-
-
-lphy8186=apply(lphy[,,264:335], MARGIN = c(1,2), FUN = mean, na.rm = TRUE)
-sphy8186=apply(sphy[,,264:335], MARGIN = c(1,2), FUN = mean, na.rm = TRUE)
-totalphy=lphy8186+sphy8186
-time4=c(264:335)
-
-plot(time4,totalphy, type="l", col="blue",las=3, xlab="meses",ylab="PP (mol C m-2*s-1)", main = "Producción Primaria durante el Niño")
-abline(v=c(276,299),lty=4)
-
-
-
-lphy8186=lphy[,,264:335]
-sphy8186=sphy[,,264:335]
-totalphy=lphy8186+sphy8186
-
-meanphy=apply(totalphy, MARGIN = c(1,2), FUN=mean)
-time4=c(264:335)
-
-plot(time4,meanphy, type="l", col="blue",las=3, xlab="meses",ylab="PP (mol C m-2*s-1)", main = "Producción Primaria durante el Niño")
-abline(v=c(276,299),lty=4)
-
-```
 
 
 ## Conclusiones
