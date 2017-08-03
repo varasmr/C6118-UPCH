@@ -69,9 +69,20 @@ Para el caso de la variación de la SST respecto al SST promedio visto entre 197
 
 par(mfrow=c(2,2))
 
+<<<<<<< HEAD
 #SST Promedio 1978-1981
 sst_mean = apply(sst[,,228:275], MARGIN = c(1,2), FUN = mean, na.rm = TRUE)
 image.map(lon, lat, sst_mean, main = "SST promedio entre 1978-1981 (°C)")
+=======
+#SST Promedio 1981-1986
+sst_mean = apply(sst[,,264:336], MARGIN = c(1,2), FUN = mean, na.rm = TRUE)
+image.map(lon, lat, sst_mean, main = "Mapa de SST promedio entre 1981-1986 (°C)")
+
+#1981
+sst_1981 = apply(sst[,,264:275], MARGIN = c(1,2), FUN = mean, na.rm = TRUE)
+anom_sst1 = sst_mean-sst_1981
+image.map(lon, lat, anom_sst1, main = "Anomalía de SST en 1981 (°C)")
+>>>>>>> 3b4671675b2ce922bfa111f107d231c24ebc47e5
 
 #1984
 sst_1984 = apply(sst[,,300:311], MARGIN = c(1,2), FUN = mean, na.rm = TRUE)
@@ -82,12 +93,15 @@ image.map(lon, lat, anom_sst1, main = "Anomalía de SST en 1984 (°C)")
 sst_1986 = apply(sst[,,324:335], MARGIN = c(1,2), FUN = mean, na.rm = TRUE)
 anom_sst2 = sst_mean-sst_1986
 image.map(lon, lat, anom_sst2, main = "Anomalía de SST en 1986 (°C)")
+<<<<<<< HEAD
 
 #1987
 sst_1987 = apply(sst[,,336:347], MARGIN = c(1,2), FUN = mean, na.rm = TRUE)
 anom_sst3 = sst_mean-sst_1987
 image.map(lon, lat, anom_sst3, main = "Anomalía de SST en 1987 (°C)")
 
+=======
+>>>>>>> 3b4671675b2ce922bfa111f107d231c24ebc47e5
 ```
 
 La SST promedio en el rango 1978-1981 fluctúa entre los 25-20°C a lo largo de la costa peruana. Al comparar con la climatología de la figura 1, se distingue claramente un aumento de la SST hasta los 5°S en 1982, el cual disminuye para 1983. En 1984 se observa un panorama similar a 1983 tomando en cuenta el rango de anomalías de la SST (figura 2), salvo una ligera tendencia a la dismunución de la SST frente a las costas del norte y centro del país. Este patrón se intensifica en 1986 y se extiende hasta el centro del país en 1987. 
