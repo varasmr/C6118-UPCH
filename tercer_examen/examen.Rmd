@@ -1,5 +1,6 @@
 ---
-title: Análisis comparativo de las condiciones oceanográficas frente al Perú antes y después de El Niño 1982-1983
+title: An�lisis comparativo de las condiciones oceanogr�ficas frente al Per� antes y despu�s de El Ni�o 1982-1983
+
 author: "Rafael M. Varas Malca"
 output:
   html_document: default
@@ -7,12 +8,12 @@ output:
 ---
 
 
-## Introducción
+## Introducci�n
 
 El evento del Niño de 1982-83 fue calificado de intensidad extraordinaria, con un incremento de la Temperatura Superficial del Mar (SST, por sus siglas en inglés) frente a la costa norte del Perú de hasta de 10° celsius (MINAM, 2014). Las condiciones oceanográficas posteriores a dicho evento son de particular interés para saber en qué momento la productividad primaria se reestableció en las costas del Perú respecto a años anteriores al evento. Debido a ello, en este trabajo se comparan dos parámetros: la SST y la productividad primaria entre los años 1978-1981 y 1984-1987.
 
 
-## Materiales y métodos
+## Materiales y m�todos
 
 Se usó la base de datos de parámetros oceanográficos del Max-Plank-Institut für Meteorologie (proporcionado por Oliveros-Ramos, com. pers., 2017) que contienen datos de la Temperatura Superficial del Mar (SST), Salinidad (SSS), integración vertical de la producción de fitoplankton pequeño (sphy) y grande (lsphy) y pH, desde 1959 hasta el 2005 (representada en 552 meses). Se seleccionaron los meses correspondientes a enero-diciembre de en el lapso de 1978-1981 (228-275), 1982 (276), 1983 (288-299), 1984 (300-311), 1985 (312-323) y 1987 (336-347) para las comparaciones respectivas. Los datos fueron trabajados en el software R (Ver. 3.4.0). Se instalaron los paquetes Fields, Maps, ncdf4, Kali para la obtención de los gráficos.
 
@@ -21,11 +22,11 @@ Las anomalías de la SST se obtuvieron mediante la diferencia entre el valor de 
 En el caso de la productividad primaria, debido a que no se cuenta como proxy la Clorofila A satelital, se ha tomado en cuenta la integración vertical del fitoplankton, aunque no se especifica la profundidad de las muestras.
 
 
-## Resultados y discusión
+## Resultados y discusi�n
 
 ### Temperatura Superficial del Mar
 
-La SST para el año de El Niño 1982-83 se muestra a continuación:
+La SST para el año de El Ni�o 1982-83 se muestra a continuaci�n:
 
 ```{r echo=FALSE, fig.cap="Figura 1. Climatologías para los años de El Niño 1982-1983", fig.align='center'} 
 
@@ -89,7 +90,7 @@ image.map(lon, lat, anom_sst3, main = "Anomalía de SST en 1987 (°C)")
 
 ```
 
-La SST promedio en el rango 1978-1981 fluctúa entre los 25-20°C a lo largo de la costa peruana. Al comparar con la climatología de la figura 1, se distingue claramente un aumento de la SST hasta los 5°S en 1982, el cual disminuye para 1983. En 1984 se observa un panorama similar a 1983 tomando en cuenta el rango de anomalías de la SST (figura 2), salvo una ligera tendencia a la dismunución de la SST frente a las costas del norte y centro del país. Este patrón se intensifica en 1986 y se extiende hasta el centro del país en 1987.
+La SST promedio en el rango 1978-1981 fluctúa entre los 25-20°C a lo largo de la costa peruana. Al comparar con la climatología de la figura 1, se distingue claramente un aumento de la SST hasta los 5°S en 1982, el cual disminuye para 1983. En 1984 se observa un panorama similar a 1983 tomando en cuenta el rango de anomalías de la SST (figura 2), salvo una ligera tendencia a la dismunución de la SST frente a las costas del norte y centro del país. Este patrón se intensifica en 1986 y se extiende hasta el centro del país en 1987. 
 
 
 ### Productividad Primaria
